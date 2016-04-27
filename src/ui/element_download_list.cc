@@ -99,6 +99,8 @@ ElementDownloadList::ElementDownloadList() :
 
   m_bindings[KEY_UP]   = m_bindings['P' - '@'] = std::tr1::bind(&ElementDownloadList::receive_prev, this);
   m_bindings[KEY_DOWN] = m_bindings['N' - '@'] = std::tr1::bind(&ElementDownloadList::receive_next, this);
+
+  m_bindings['L']           = std::tr1::bind(&ElementDownloadList::toggle_layout, this);
 }
 
 void
@@ -221,4 +223,8 @@ ElementDownloadList::receive_change_view(const std::string& name) {
   set_view(*itr);
 }
 
+void
+ElementDownloadList::toggle_layout() {
+  rpc::call_command("download.list.layout.set", (rpc::call_command_value("download.list.layout") + 1)%2);
+}
 }

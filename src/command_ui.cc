@@ -518,6 +518,8 @@ void
 initialize_command_ui() {
   CMD2_VAR_STRING("keys.layout", "qwerty");
 
+  CMD2_VAR_VALUE("download.list.layout", 0);
+
   CMD2_ANY_STRING("view.add", object_convert_void(tr1::bind(&core::ViewManager::insert_throw, control->view_manager(), tr1::placeholders::_2)));
 
   CMD2_ANY_L   ("view.list",          tr1::bind(&apply_view_list));

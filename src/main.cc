@@ -399,6 +399,8 @@ main(int argc, char** argv) {
 
     CMD2_REDIRECT        ("key_layout", "keys.layout.set");
 
+    CMD2_REDIRECT        ("download_list_layout", "download.list.layout.set");
+
     // Deprecated commands. Don't use these anymore.
 
     if (rpc::call_command_value("method.use_intermediate") == 1) {
